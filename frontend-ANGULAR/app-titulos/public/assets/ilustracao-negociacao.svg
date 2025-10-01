@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260">
+  <defs>
+    <linearGradient id="grad-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c1a6c" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#3b74f2" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="360" height="260" rx="24" fill="url(#grad-bg)" />
+  <g fill="#fff">
+    <rect x="40" y="50" width="280" height="160" rx="16" opacity="0.1" />
+    <rect x="60" y="70" width="120" height="20" rx="10" opacity="0.25" />
+    <rect x="60" y="110" width="220" height="20" rx="10" opacity="0.25" />
+    <rect x="60" y="150" width="180" height="20" rx="10" opacity="0.25" />
+    <circle cx="250" cy="80" r="14" opacity="0.25" />
+    <circle cx="290" cy="80" r="14" opacity="0.15" />
+    <path d="M260 200c0-22 18-40 40-40" stroke="#2ec27e" stroke-width="10" stroke-linecap="round" fill="none" opacity="0.6" />
+    <path d="M40 200c0-30 24-54 54-54" stroke="#f7f8ff" stroke-width="14" stroke-linecap="round" fill="none" opacity="0.2" />
+  </g>
+  <g fill="#fff">
+    <circle cx="120" cy="168" r="26" opacity="0.9" />
+    <path d="M120 144c14 0 26 12 26 26s-12 26-26 26-26-12-26-26 12-26 26-26zm0 10a16 16 0 1 0 0 32 16 16 0 0 0 0-32z" opacity="0.8" />
+    <path d="M120 160a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm38-48h60a6 6 0 0 1 6 6v60a6 6 0 0 1-6 6h-60a6 6 0 0 1-6-6v-60a6 6 0 0 1 6-6zm10 16v8h40v-8h-40zm0 20v8h28v-8h-28zm0 20v8h20v-8h-20z" opacity="0.8" />
+  </g>
+</svg>
+

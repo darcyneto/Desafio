@@ -1,0 +1,73 @@
+<section class="novo-titulo" [formGroup]="formulario">
+  <div class="novo-titulo__header">
+    <span class="etiqueta">Novo cadastro</span>
+    <h1>Cadastro de título</h1>
+    <p>Informe os dados do devedor, condições e parcelas para gerar um novo título no sistema.</p>
+  </div>
+
+  <form (ngSubmit)="salvar()" class="card">
+    <div class="grid grid--top">
+      <label>
+        <span>CNPJ/CPF</span>
+        <input formControlName="cpfDevedor" maxlength="18" placeholder="Digite o documento" appCpfCnpjMask />
+      </label>
+
+      <label>
+        <span>Nome do devedor</span>
+        <input formControlName="nomeDevedor" placeholder="Nome completo" />
+      </label>
+
+      <label>
+        <span>Número do título</span>
+        <input formControlName="numeroTitulo" placeholder="Ex: 000123" />
+      </label>
+    </div>
+
+    <div class="grid grid--bottom">
+      <label>
+        <span>% Juros ao mês</span>
+        <input type="number" step="0.01" formControlName="jurosAoMes" placeholder="0,00" />
+      </label>
+
+      <label>
+        <span>% Multa</span>
+        <input type="number" step="0.01" formControlName="multaPercentual" placeholder="0,00" />
+      </label>
+    </div>
+
+    <div formArrayName="parcelas" class="parcelas">
+      <div class="titulo">
+        <h2>Parcelas</h2>
+        <button type="button" class="btn primario" (click)="adicionarParcela()">Adicionar parcela</button>
+      </div>
+
+      <div class="parcela" *ngFor="let parcela of parcelas.controls; let i = index" [formGroupName]="i">
+        <div class="campos">
+          <label>
+            <span>Número</span>
+            <input type="number" formControlName="numero" />
+          </label>
+
+          <label>
+            <span>Vencimento</span>
+        <input type="date" formControlName="vencimento" />
+          </label>
+
+          <label>
+            <span>Valor</span>
+            <input type="number" step="0.01" formControlName="valor" placeholder="0,00" />
+          </label>
+        </div>
+        <button type="button" class="btn secundario" (click)="removerParcela(i)" [disabled]="parcelas.length === 1">Remover</button>
+      </div>
+    </div>
+
+    <p class="mensagem" *ngIf="mensagem">{{ mensagem }}</p>
+
+    <div class="acoes">
+      <button type="submit" class="btn primario" (click)="salvar()">Salvar título</button>
+      <button type="button" class="btn secundario" routerLink="/titulos">Cancelar</button>
+    </div>
+  </form>
+</section>
+

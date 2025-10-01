@@ -1,0 +1,46 @@
+
+<section class="lista">
+  <header>
+    <div>
+      <span class="lista__etiqueta">Títulos ativos</span>
+      <h2>Acompanhe seus títulos cadastrados</h2>
+    </div>
+    <button type="button" class="btn primario" routerLink="/titulos/novo">Novo título</button>
+  </header>
+
+  <div class="tabela-wrapper">
+    <table *ngIf="titulos$ | async as titulos; else vazio">
+      <thead>
+        <tr>
+          <th>Número</th>
+          <th>Devedor</th>
+          <th>CPF / CNPJ</th>
+          <th>Parcelas</th>
+          <th>Valor original</th>
+          <th>Valor atualizado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let titulo of titulos">
+          <td>{{ titulo.numeroTitulo }}</td>
+          <td>
+            <strong>{{ titulo.nomeDevedor }}</strong>
+          </td>
+          <td>{{ titulo.cpfDevedor | cpfCnpj }}</td>
+          <td>{{ titulo.parcelaQuantidade }}</td>
+          <td>{{ titulo.valorOriginal | currency:'BRL' }}</td>
+          <td>{{ titulo.valorAtualizado | currency:'BRL' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #vazio>
+    <div class="lista__vazio">
+      <h3>Nenhum título cadastrado.</h3>
+      <p>Cadastre o seu primeiro título para acompanhar as parcelas e gerar novos acordos.</p>
+      <button type="button" class="btn primario" routerLink="/titulos/novo">Começar agora</button>
+    </div>
+  </ng-template>
+</section>
+
