@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Desafio.Api",
+    "\\Desafio.Api.Tests",
+    "\\Desafio.Api\\Controllers",
+    "\\Desafio.Api\\Models",
+    "\\Desafio.Api\\ViewModels"
+  ],
+  "PreviewInSolutionExplorer": false
+}

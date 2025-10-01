@@ -1,0 +1,219 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Desafio.Api",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/titulos": {
+      "post": {
+        "tags": [
+          "Titulos"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TituloEntrada"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TituloEntrada"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TituloEntrada"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TituloResultado"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TituloResultado"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TituloResultado"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Titulos"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TituloResultado"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TituloResultado"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TituloResultado"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ParcelaEntrada": {
+        "type": "object",
+        "properties": {
+          "numero": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "vencimento": {
+            "type": "string",
+            "nullable": true
+          },
+          "valor": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParcelaResultado": {
+        "type": "object",
+        "properties": {
+          "numero": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "vencimento": {
+            "type": "string",
+            "nullable": true
+          },
+          "valor": {
+            "type": "number",
+            "format": "double"
+          },
+          "diasEmAtraso": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "valorAtualizado": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TituloEntrada": {
+        "type": "object",
+        "properties": {
+          "numeroTitulo": {
+            "type": "string",
+            "nullable": true
+          },
+          "nomeDevedor": {
+            "type": "string",
+            "nullable": true
+          },
+          "cpfDevedor": {
+            "type": "string",
+            "nullable": true
+          },
+          "jurosAoMes": {
+            "type": "number",
+            "format": "double"
+          },
+          "multaPercentual": {
+            "type": "number",
+            "format": "double"
+          },
+          "parcelas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParcelaEntrada"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TituloResultado": {
+        "type": "object",
+        "properties": {
+          "numeroTitulo": {
+            "type": "string",
+            "nullable": true
+          },
+          "nomeDevedor": {
+            "type": "string",
+            "nullable": true
+          },
+          "cpfDevedor": {
+            "type": "string",
+            "nullable": true
+          },
+          "jurosAoMes": {
+            "type": "number",
+            "format": "double"
+          },
+          "multaPercentual": {
+            "type": "number",
+            "format": "double"
+          },
+          "valorOriginal": {
+            "type": "number",
+            "format": "double"
+          },
+          "valorAtualizado": {
+            "type": "number",
+            "format": "double"
+          },
+          "parcelaQuantidade": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "parcelas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParcelaResultado"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
